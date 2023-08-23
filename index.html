@@ -1,0 +1,313 @@
+<!DOCTYPE html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <link rel="stylesheet" href="./script.css">
+
+  <title>YASHSPIRE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(25,25,112);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+    }
+    .stdy{
+      color: #ffc400;
+    }
+    .led{
+      color: #3ee4e1;
+    }
+
+    .menu li {
+      list-style: none;
+      margin-right: 10px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #eaf701;
+      font-size: 18px;
+      padding: 10px;
+      border-radius: 30px;
+      transition: background-color 0.3s;
+    }
+
+    .menu a:hover {
+      background-color: #000;
+      color: #fff;
+    }
+    .podcast {
+      color: #f77001;
+    }
+
+    .page {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    #page2 , #page1{
+       background-color:#393b63;
+    }
+
+    #page1 , #page3 , #page5{
+      /* background-color: #666; */
+      /* background-color: rgb(16,20,38); */
+      background-color: rgb(16,20,38);
+    }
+
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      height: 80%;
+    }
+
+    .text {
+      flex: 1;
+      padding: 50px;
+    }
+
+    .image {
+      flex: 1;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bloge {color: #eaff00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fdd835;
+      color: #fff;
+    }
+
+    button.next-button {
+      padding: 12px 22px;
+      font-size: 18px;
+      border-radius: 50px;
+      background-color: #f65faf;
+      color: #fff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button.next-button:hover {
+      background-color: rgb(244,187,138);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="minicircle" id="minicircle">   </div>
+<!-- 
+
+  <div class="header" >
+    <div class="logo" >
+      <img src="https://www.creativefabrica.com/wp-content/uploads/2019/03/Monogram-YS-Logo-Design-by-Greenlines-Studios-580x386.jpg" alt="Small Logo">
+      YASHSPIRE
+    </div>
+    <ul class="menu">
+      <li><a href="#page1">Home</a></li>
+      <li><a href="6about_us.html">About Us</a></li>
+      <li><a href="#page5">Contact Us</a></li>
+    </ul>
+  </div> -->
+
+
+    <div class="main">
+
+      <!-- 
+        TO MAKE NAV AS FIXED IT DOESNT HAPPEN IN LOCO-SCROLL CZ IT DOESNT CARE AND MAKES EVERYTHING AS SCROLLING SO TO FIX IT PLACE IT OUSIDE OF LOCO-SCROLL's ELE SIMPLE ")"
+       -->
+  
+  <div class="header" >
+    <div class="logo" >
+      <img src="https://www.creativefabrica.com/wp-content/uploads/2019/03/Monogram-YS-Logo-Design-by-Greenlines-Studios-580x386.jpg" alt="Small Logo">
+      YASHSPIRE
+    </div>
+    <ul class="menu">
+      <li><a href="#page1">Home</a></li>
+      <li><a href="6about_us.html">About Us</a></li>
+      <li><a href="#page5">Contact Us</a></li>
+    </ul>
+  </div>
+
+           
+
+            <div class="page" id="page1">
+              <div class="content">
+                <div class="text">
+                  <h2 class="shed">Shedule Generator</h2>
+                  <style>
+                    .shed {
+                      color:rgb(156, 196, 228)
+                    }
+                    </style>
+
+                  <p>Yashpire Generates a personalized daily shedule to achieve your goal based on the works and commitments you have on the day </p>
+                  <button class="next-button" onclick="divya()">Next</button>
+                  <script>
+                    function divya() {
+                      window.location.href = "1shedule.html";
+                    }
+                    </script>
+                </div>
+                <div class="image">
+                  <img src="7shedule.jpg" alt="Background Image">
+                </div>
+              </div>
+            </div>
+          
+            <div class="minicircle2" id="minicircle2">   </div>
+
+            <div class="page" id="page2">
+              <div class="content">
+                <div class="image">
+                  <img src="7leaderboard.png" alt="Background Image">
+                </div>
+                <div class="text">
+                  <h2 class="led">Leaderboard</h2>
+                  <p>Gives a daily and monthly leaderboard based on how much percentage you completed your daily shedule</p>
+                  <button class="next-button" onclick="hari()">Next</button>
+                  <script>
+                    function hari() {
+                      window.location.href = "2leaderboard.html";
+                    }
+                    </script>
+                </div>
+              </div>
+            </div>
+
+            <div class="minicircle3" id="minicircle3">   </div>
+
+            <div class="page" id="page3">
+              <div class="content">
+                <div class="text">
+                  <h2 class="stdy">Study Environment</h2>
+                  <p>Join with people and study focused <br> Pitch your idea, get your partner</p>
+                  <button class="next-button" onclick="putti()">Next</button>
+                  <script>
+                    function putti() {
+                      window.location.href = "3video_call.html";
+                    }
+                    </script>
+                </div>
+                <div class="image">
+                  <img src="7studing.jpg" alt="Background Image">
+                </div>
+              </div>
+            </div>
+
+            <div class="minicircle4" id="minicircle4">   </div>
+
+
+            <div class="page" id="page4">
+              <div class="content">
+                <div class="image">
+                  <img src="https://rachelcorbett.com.au/wp-content/uploads/2018/07/Neon-podcast-logo.jpg" alt="Background Image">
+                </div>
+                <div class="text">
+                  <h2 class="podcast">Podcast</h2>
+                  <p>We will conduct Podcast with Industrialists 
+                    <br>and we ask your doubts with them</p>
+                  <button class="next-button" onclick="shubh()">Next</button>
+                  <script>
+                    function shubh() {
+                      window.location.href = "4podcast.html";
+                    }
+                    </script>
+                </div>
+              </div>
+            </div>
+
+            <div class="minicircle5" id="minicircle5">   </div>
+
+
+            <div class="page" id="page5">
+              <div class="content">
+                <div class="text">
+                  <h2 class="bloge">Keep Updated and Competitive</h2>
+                  <p class="hut">Here we keep you updated with New Technology, Hackathons, Competitions...</p>
+                  <button class="next-button" onclick="tej()"> <bold> Next </bold> </button>
+                  <script>
+                    function tej() {
+                      window.location.href = "5blog.html";
+                    }
+                    </script>
+                </div>
+                <div class="image">
+                  <img src="7info.png" alt="Background Image">
+                </div>
+              </div>
+            </div>
+
+            <footer>
+              <a href="https://www.instagram.com/thenameisyash/">Instagram</a> |
+              <a href="https://twitter.com/TheNameIsYash?s=20">Twitter</a> |
+              <a href="https://www.youtube.com/watch?v=Qah9sSIXJqk">YouTube</a>
+            </footer>
+
+            <script>
+              const page1 = document.getElementById('page1');
+              const header = document.querySelector('.header');
+              const hamburger = document.querySelector('.hamburger');
+
+              document.addEventListener('DOMContentLoaded', () => {
+                header.classList.add('active');
+              });
+
+              function scrollToPage(pageId) {
+                const page = document.getElementById(pageId);
+                page.scrollIntoView({ behavior: 'smooth' });
+              }
+
+              function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            </script>
+    </div>
+
+    
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script type="module" src="./script.js"> </script>
+
+</body>
+
+  
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Schedule Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Daily Schedule Generator</h1>
+    <div id="input-container">
+        <form action="/generate_schedule" method="post">
+            <label for="wakeup-time">Wake-up Time:</label>
+            <input type="text" id="wakeup-time" name="wakeup-time" placeholder="Enter wake-up time (e.g., 07:00 AM)">
+
+            <label for="fixed-commitments">Fixed Commitments:</label>
+            <input type="text" id="fixed-commitments" name="fixed-commitments" placeholder="Enter fixed commitments">
+
+            <label for="free-time">Free Time:</label>
+            <input type="text" id="free-time" name="free-time" placeholder="Enter free time allocation">
+
+            <label for="goals">Goals:</label>
+            <input type="text" id="goals" name="goals" placeholder="Enter your goals">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    {% if show_schedule %}
+    <div id="schedule-container">
+        <h2>Your Daily Schedule:</h2>
+        <div id="schedule">{{ schedule }}</div>
+    </div>
+    {% endif %}
+</body>
+</html>

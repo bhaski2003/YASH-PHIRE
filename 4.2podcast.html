@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Podcast Questions</title>
+    <link rel="stylesheet" href="4.1podcast.css">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .question-wrapper {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: right;
+        }
+
+        #post {
+            text-align: right;
+            width: fit-content;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .comment {
+            clear: both;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: black;
+            background-color: white;
+        }
+
+        .message {
+            display: block;
+        }
+
+        .teja1 {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #fullname {
+            text-align: center;
+            color: yellow;
+        }
+
+        .blue-bg {
+            background-color: blue;
+        }
+
+        .pink-bg {
+            background-color: pink;
+        }
+
+        .violet-bg {
+            background-color: violet;
+        }
+
+        .yellow-bg {
+            background-color: yellow;
+        }
+
+        .red-bg {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-6 col-12 pb-4">
+                    <div class="question-wrapper">
+                        <h1>Ask Business Related Questions For Ratan Tata sir</h1>
+                    </div>
+                    <div id="comments" class="comments mt-4">
+                        <!-- Existing comments will be displayed here -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                    <form id="align-form">
+                        <div class="form-group">
+                            <label for="message" class="teja1">Question</label>
+                            <br>
+                            <textarea name="msg" id="msg" cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="teja1">Name</label>
+                            <br>
+                            <input type="text" name="name" id="fullname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" id="post" class="btn">Post Comment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('post').addEventListener('click', function() {
+            var comment = document.createElement('div');
+            var colorClasses = ['blue-bg', 'pink-bg', 'violet-bg', 'yellow-bg', 'red-bg'];
+            var randomIndex = Math.floor(Math.random() * colorClasses.length);
+            var randomColorClass = colorClasses[randomIndex];
+            comment.className = 'comment mt-4 text-justify float-left ' + randomColorClass;
+            comment.innerHTML = `
+                <h4 class="name" style="color: black;">${document.getElementById('fullname').value}</h4>
+                <p class="question" style="color: black;">${document.getElementById('msg').value}</p>
+            `;
+            document.getElementById('comments').appendChild(comment);
+        });
+    </script>
+</body>
+
+</html>

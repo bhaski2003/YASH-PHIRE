@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="3video_call.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="3video_call.js"></script>
+  <style>
+    body {
+      background-color: violet;
+    }
+
+    .content-item {
+      margin-top: 20px;
+    }
+    .avatar-img {
+      max-width: 100px;
+    }
+    .message-form {
+      display: flex;
+      align-items: center;
+    }
+    .message-form input {
+      flex-grow: 1;
+    }
+    .message-form button {
+      margin-top: 10px;
+    }
+    .static-message {
+      display: inline-block;
+      max-width: 200px;
+    }
+    .comment-container {
+      margin-left: 20px;
+    }
+    .reply-form {
+      margin-top: 10px;
+      display: none;
+    }
+    .reply-list {
+      margin-top: 10px;
+      margin-left: 40px;
+    }
+
+    /* Added CSS for comment box color */
+    .form-control {
+      background-color: yellow;
+      color: black;
+    }
+
+    /* Added CSS for second row background color */
+    .row:nth-child(2) {
+      background-color: red;
+    }
+
+    /* Added CSS for submit button color and text color */
+    .message-form .btn-normal {
+      background-color: green;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Study Together With Focus</h1>
+  <p>Please choose your course:</p>
+  <select id="courseSelect">
+    <option value="">Select Course</option>
+    <option value="java">Java</option>
+    <option value="python">Python</option>
+    <option value="dsa">DSA (Data Structures and Algorithms)</option>
+    <option value="own room">Own Room</option>
+  </select>
+  <button onclick="startVideoCall()">Join Video Call</button>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Connect With Likely Minded People</h2>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="3same_ppl.css">
+  <section class="content-item" id="comments">
+    <div class="container">   
+      <div class="row">
+        <div class="col-sm-8">   
+          <form onsubmit="addComment(event)">
+            <div class="row">
+              <div class="col-xs-12 col-sm-3">
+                <!-- Removed the first image -->
+              </div>
+              <div class="form-group col-xs-12 col-sm-9 message-form">
+                <input type="text" class="form-control" id="message" placeholder="Pitch Your Idea" required="">
+                <button type="submit" class="btn btn-normal">Submit</button>
+              </div>
+            </div>
+          </form>
+
+          <h3><span id="commentCount">0</span> Comments</h3>
+
+          <div id="commentList"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var commentCount = 0;
+    var replyCount = 0;
+
+    function addComment(event) {
+      event.preventDefault();
+      var messageInput = document.getElementById("message");
+      var message = messageInput.value;
+      messageInput.value = "";
+
+      var commentList = document.getElementById("commentList");
+      var newComment = document.createElement("div");
+      newComment.classList.add("media");
+
+      var avatar = document.createElement("a");
+      avatar.classList.add("pull-left");
+      avatar.href = "#";
+      var avatarImg = document.createElement("img");
+      avatarImg.classList.add("media-object", "avatar-img");
+      avatarImg.src = "https://yt3.ggpht.com/a/AATXAJyxkP6-K2S9PA1BFWZweug_tftD6bxL2ZZ_cQ=s900-c-k-c0xffffffff-no-rj-mo";
+      avatar.appendChild(avatarImg);
+
+      var mediaBody = document.createElement("div");
+      mediaBody.classList.add("media-body");
+
+      var mediaHeading = document.createElement("h4");
+      mediaHeading.classList.add("media-heading");
+      mediaHeading.innerText = "Tejas V P";
+
+      var commentText = document.createElement("p");
+      commentText.innerText = message;
+
+      var replyButton = document.createElement("button");
+      replyButton.type = "button";
+      replyButton.classList.add("btn", "btn-normal");
+      replyButton.innerText = "Reply";
+      replyButton.onclick = function() {
+        toggleReplyForm(commentCount);
+      };
+
+      var replyForm = document.createElement("form");
+      replyForm.classList.add("reply-form");
+      replyForm.style.display = "none";
+      replyForm.onsubmit = function(event) {
+        addReply(event, commentCount);
+      };
+
+      var replyInput = document.createElement("input");
+      replyInput.type = "text";
+      replyInput.classList.add("form-control");
+      replyInput.placeholder = "Your reply";
+      replyInput.required = true;
+
+      var replySubmitButton = document.createElement("button");
+      replySubmitButton.type = "submit";
+      replySubmitButton.classList.add("btn", "btn-normal");
+      replySubmitButton.innerText = "Submit";
+
+      replyForm.appendChild(replyInput);
+      replyForm.appendChild(replySubmitButton);
+
+      mediaBody.appendChild(mediaHeading);
+      mediaBody.appendChild(commentText);
+      mediaBody.appendChild(replyButton);
+      mediaBody.appendChild(replyForm);
+
+      newComment.appendChild(avatar);
+      newComment.appendChild(mediaBody);
+
+      var commentContainer = document.createElement("div");
+      commentContainer.id = "comment_" + commentCount;
+      commentContainer.classList.add("comment-container");
+
+      commentContainer.appendChild(newComment);
+
+      commentList.appendChild(commentContainer);
+
+      commentCount++;
+      updateCommentCount();
+      replyCount = 0;
+    }
+
+    function updateCommentCount() {
+      var commentCountElement = document.getElementById("commentCount");
+      commentCountElement.innerText = commentCount.toString();
+    }
+
+    function toggleReplyForm(commentId) {
+      var replyForm = document.querySelector("#comment_" + commentId + " .reply-form");
+      var replyInput = document.querySelector("#comment_" + commentId + " input");
+
+      if (replyForm.style.display === "none") {
+        replyForm.style.display = "block";
+        replyInput.value = ""; // Reset the reply input field
+      } else {
+        replyForm.style.display = "none";
+      }
+    }
+
+    function addReply(event, commentId) {
+      event.preventDefault();
+      var replyInput = document.querySelector("#comment_" + commentId + " input");
+      var reply = replyInput.value;
+      replyInput.value = "";
+
+      var replyList = document.createElement("ul");
+      replyList.classList.add("list-unstyled", "reply-list");
+
+      var replyItem = document.createElement("li");
+      replyItem.innerText = reply;
+
+      replyList.appendChild(replyItem);
+
+      var commentContainer = document.getElementById("comment_" + commentId);
+      commentContainer.appendChild(replyList);
+
+      replyCount++;
+    }
+  </script>
+</body>
+</html>

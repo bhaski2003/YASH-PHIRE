@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YASHSPIRE</title>
+  <style>
+    body {
+      background-image: url('tiger.jpg');
+      background-size: cover;
+    }
+    
+    header {
+      background-color: #e2c5f8;
+      color:#b054f8;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 32px;
+    }
+    
+    footer {
+      background-color: #f4cffa;
+      text-align: center;
+      padding: 10px;
+      color: #ae45bf;
+    }
+    
+    .row {
+      display: flex;
+      
+      justify-content: left;
+      align-items: right;
+      height: 200px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ae45bf;
+    }
+    
+    .row:nth-child(1) {
+      background-color: #f4cffa;
+      flex-direction: column;
+      justify-content: right;
+    }
+    
+    .row:nth-child(2) {
+      background-color: #faa8d9;
+      flex-direction: column;
+      justify-content: left;
+    }
+    
+    .row:nth-child(3) {
+      background-color: #fbb9f3;
+      flex-direction: column;
+      justify-content: right;
+    }
+    
+    .row:nth-child(4) {
+      background-color: #faa8d9;
+      flex-direction: column;
+      justify-content: left;
+    }
+    
+    .row:nth-child(5) {
+      background-color: #fbb9f3;
+      flex-direction: column;
+      justify-content: right;
+    }
+    
+    .row:nth-child(6) {
+      background-color: #faa8d9;
+      
+      justify-content: left;
+    }
+    
+    .row button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    
+    .row p {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    
+    .row:nth-child(even) button,
+    .row:nth-child(even) p {
+      order: 2;
+    }
+    
+    .row:nth-child(odd) button,
+    .row:nth-child(odd) p {
+      order: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    YASHSPIRE
+  </header>
+
+  <div class="row">
+    <h2>Row 1</h2>
+    <h3>Description 1</h3>
+    <button>Button 1</button>
+  </div>
+
+  <div class="row">
+    <h2>Row 2</h2>
+    <h3>Description 2</h3>
+    <button>Button 2</button>
+  </div>
+
+  <div class="row">
+    <h2>Row 3</h2>
+    <h3>Description 3</h3>
+    <button onclick="vtcl()">button 3</button>
+    <script>
+      function vtcl() {
+        window.location.href = "vt.html";
+      }
+      </script>
+  </div>
+
+  <div class="row">
+    <h2>Row 4</h2>
+    <h3>Description 4</h3>
+    <button onclick="redirect()">button 4</button>
+    <script>
+      function redirect() {
+        window.location.href = "pc.html";
+      }
+      </script>
+
+
+  </div>
+
+  <div class="row">
+    <h2>Row 5</h2>
+    <h3>Description 5</h3>
+    <button onclick="redirectToOtherPage()">button 5</button>
+
+<script>
+function redirectToOtherPage() {
+  window.location.href = "newblog.html";
+}
+</script>
+  </div>
+
+  <footer>
+    <a href="https://www.instagram.com/">Social Media</a>
+  </footer>
+</body>
+</html>

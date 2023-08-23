@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elon Musk Podcast</title>
+  <style>
+    /* CSS styles */
+    #submitForm {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Podcast with Elon Musk</h1>
+  
+  <form id="submitForm">
+    <input type="text" id="messageInput" placeholder="Type your message here">
+    <input type="submit" value="Submit">
+  </form>
+  
+  <div id="messages"></div>
+
+  <script>
+    // JavaScript code
+    document.getElementById("submitForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent form submission
+      
+      // Get the user's input message
+      var message = document.getElementById("messageInput").value;
+      
+      // Create a new paragraph element
+      var newMessage = document.createElement("p");
+      newMessage.textContent = message;
+      
+      // Append the new message to the messages container
+      document.getElementById("messages").appendChild(newMessage);
+      
+      // Clear the input field
+      document.getElementById("messageInput").value = "";
+    });
+  </script>
+</body>
+</html>
